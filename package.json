@@ -5,11 +5,14 @@
   "description": "[![Actions Status](https://github.com/tonich-2/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/tonich-2/frontend-project-44/actions)",
   "bin": {
     "brain-games": "bin/brain-games.js"
-},
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Anton Arzamastsev <tonich@sbor.net>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
