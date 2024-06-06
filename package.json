@@ -4,7 +4,8 @@
   "type": "module",
   "description": "[![Actions Status](https://github.com/tonich-2/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/tonich-2/frontend-project-44/actions)",
   "bin": {
-    "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-even.js"
   },
   "main": "index.js",
   "scripts": {
@@ -13,6 +14,7 @@
   "author": "Anton Arzamastsev <tonich@sbor.net>",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.21",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
