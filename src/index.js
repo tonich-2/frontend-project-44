@@ -21,6 +21,9 @@ export default (gameName) => {
         randomExpressionArray = getRandomExpression();
         question = `${randomExpressionArray[0]} ${randomExpressionArray[1]} ${randomExpressionArray[2]}`;
         break;
+      case 'brain-gcd':
+        randomExpressionArray = getRandomExpression();
+        question = `${randomExpressionArray[0]} ${randomExpressionArray[2]}`;
       // no default
     }
     console.log('Question: ' + question);
@@ -48,6 +51,26 @@ export default (gameName) => {
     // no default
         }
         break;
+      case 'brain-gcd': {
+        const absRandNum1 = Math.abs(randomExpressionArray[0]);
+        const absRandNum2 = Math.abs(randomExpressionArray[2]);
+        /* The absolute value of numbers is because these random numbers may be negative and it will
+        cause wrong result (moreover, the greatest common divisor will be positive anyway). */
+        let gcd;
+        if (absRandNum1 < absRandNum2 && absRandNum1 !== 0) {
+          gcd = absRandNum1;
+        } else if (absRandNum2 !== 0) {
+          gcd = absRandNum2;
+        } else {
+          gcd = 1; // if both of the random numbers are 0
+        }
+        for (gcd; gcd >= 1; gcd -= 1) {
+          if (absRandNum1 % gcd === 0 && absRandNum2 % gcd === 0) {
+            correctAnswer = gcd;
+            break;
+          }
+        }
+      }
 // no default
     }
 
