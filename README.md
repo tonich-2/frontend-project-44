@@ -7,6 +7,9 @@ https://asciinema.org/a/ygKn32wJwDngOIuwbZhVXQtc0
 ### Asciinema. Demonstration of a launch the brain-gcd game:
 https://asciinema.org/a/Qmdd11AjMQjX9rnoyNFVpxYmi
 
+### Asciinema. Demonstration of a launch the brain-progression game:
+https://asciinema.org/a/hgdSitzvMDNA8uCIljzmeI6u2
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/tonich-2/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/tonich-2/frontend-project-44/actions)
 
