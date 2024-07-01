@@ -14,6 +14,8 @@ export default (gameName) => {
     case 'brain-gcd':
       console.log('Find the greatest common divisor of given numbers.');
       break;
+    case 'brain-progression':
+      console.log('What number is missing in the progression?');
   // no default
   }
 

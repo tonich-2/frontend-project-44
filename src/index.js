@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 import greeting from './greeting.js';
 import getRandomExpression from './randomExpression.js';
 import randomNumber from './randomNumber.js';
+import getProgression from './progression.js';
 
 export default (gameName) => {
   console.log('Welcome to the Brain Games!');
@@ -13,6 +14,7 @@ export default (gameName) => {
   while (i <= roundsCount) {
     let question;
     let randomExpressionArray;
+    let progressionArray;
     switch (gameName) {
       case 'brain-even':
         question = randomNumber();
@@ -24,6 +26,10 @@ export default (gameName) => {
       case 'brain-gcd':
         randomExpressionArray = getRandomExpression();
         question = `${randomExpressionArray[0]} ${randomExpressionArray[2]}`;
+        break;
+      case 'brain-progression':
+        progressionArray = getProgression();
+        question = progressionArray[1].join(' ');
       // no default
     }
     console.log('Question: ' + question);
@@ -47,7 +53,6 @@ export default (gameName) => {
             break;
           case '*':
             correctAnswer = randomExpressionArray[0] * randomExpressionArray[2];
-            break;
     // no default
         }
         break;
@@ -71,6 +76,9 @@ export default (gameName) => {
           }
         }
       }
+        break;
+      case 'brain-progression':
+        correctAnswer = progressionArray[0];
 // no default
     }
 
