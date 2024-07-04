@@ -17,7 +17,7 @@ export default (gameName) => {
     let progressionArray;
     switch (gameName) {
       case 'brain-even':
-        question = randomNumber();
+        question = randomNumber(gameName);
         break;
       case 'brain-calc':
         randomExpressionArray = getRandomExpression();
