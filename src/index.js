@@ -3,6 +3,7 @@ import greeting from './greeting.js';
 import getRandomExpression from './randomExpression.js';
 import randomNumber from './randomNumber.js';
 import getProgression from './progression.js';
+import isPrime from './isPrime.js';
 
 export default (gameName) => {
   console.log('Welcome to the Brain Games!');
@@ -30,6 +31,9 @@ export default (gameName) => {
       case 'brain-progression':
         progressionArray = getProgression();
         question = progressionArray[1].join(' ');
+        break;
+      case 'brain-prime':
+        question = randomNumber(gameName);
       // no default
     }
     console.log('Question: ' + question);
@@ -79,6 +83,9 @@ export default (gameName) => {
         break;
       case 'brain-progression':
         correctAnswer = progressionArray[0];
+        break;
+      case 'brain-prime':
+        correctAnswer = isPrime(question);
 // no default
     }
 
