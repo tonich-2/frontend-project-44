@@ -11,14 +11,20 @@ Unix-like OS with installed Git is required. If you do not want to install the g
 
 Installation and launch.
 1. Clone the repository with the games to your computer. For this purpose, run the command:
+
 git clone git@github.com:tonich-2/frontend-project-44.git
+
 2. Go to the directory of the game package - "frontend-project-44" and run the global installation command there:
+
 cd frontend-project-44
+
 npm link
+
 3. After that you can launch every game you like. For this purpose type its name in your console and press enter.
 
 If you do not want to install the game package but Node.js is installed.
 1. Clone the repository with the games to your computer. For this purpose, run the command:
+
 git clone git@github.com:tonich-2/frontend-project-44.git
 2. To launch the game you need go to the directory of the game package - "frontend-project-44", type "make" and after space - the game name. Then press enter.
 
