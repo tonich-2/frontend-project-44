@@ -1,10 +1,12 @@
 The "Brain Games" project is a compilation of text-based games for Unix-like operating systems. There are three rounds in each game and in every round there is a question for you. To have a victory you have to answer correctly all three questions in a row.
+
 - Actually "brain-games" is a program which asks your name and than greets you. By your name.
 - "brain-even". In each round here you have to answer, is the number even or odd. You must answer only "yes" or "no" (without quotes, in lowercase).
 - "brain-calc". In each round here you have to solve a mathematical expression.
 - "brain-gcd". In each round here you have to find the greatest common divisor of two numbers.
 - "brain-progression". In each round here you have to find the missing element of the arithmetic progression.
 - "brain-prime". In each round here you have to answer, is the number prime or composite.
+
 
 Minimum system requirements.
 
