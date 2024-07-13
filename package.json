@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
-  "description": "[![Actions Status](https://github.com/tonich-2/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/tonich-2/frontend-project-44/actions)",
+  "description": "The "Brain Games" project is a compilation of text-based games for Unix-like operating systems. There are three rounds in each game and in every round there is a question for you. To have a victory you have to answer correctly all three questions in a row.",
   "bin": {
     "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js",
