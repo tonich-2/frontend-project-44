@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import greeting from './greeting.js';
 
-export default (gameName, question) => {
+export default (gameName, getQuestionAndAnswer) => {
   console.log('Welcome to the Brain Games!');
 
   const userName = greeting(gameName);
@@ -10,17 +10,17 @@ export default (gameName, question) => {
   let questionAndAnswer = [];
   let i = 1;
   while (i <= roundsCount) {
-    questionAndAnswer = question();
+    questionAndAnswer = getQuestionAndAnswer();
     console.log(`Question: ${questionAndAnswer[0]}`);
 
-    const answer = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
 
     let result = 'Correct!';
-    if (answer === String(questionAndAnswer[1])) { /* String() needs because entered numbers
+    if (userAnswer === String(questionAndAnswer[1])) { /* String() needs because entered numbers
       are interpreted as strings but correctAnswer may be either a number or a string. */
       i += 1;
     } else {
-      result = `'${answer}' is wrong answer ;(. Correct answer was '${questionAndAnswer[1]}'. Let's try again, ${userName}!`;
+      result = `'${userAnswer}' is wrong answer ;(. Correct answer was '${questionAndAnswer[1]}'. Let's try again, ${userName}!`;
       i = roundsCount + 2; // To exit the loop and do not show Congratulations message.
     }
     console.log(result);
