@@ -3,12 +3,14 @@ import getRandomNumber from '../randomNumber.js';
 
 export default () => {
   const gameName = 'brain-even';
-  const question = getRandomNumber(gameName);
+  const question = () => {
+    const currentQuestion = getRandomNumber(gameName);
 
-  let correctAnswer = 'yes';
-  if ((question % 2) !== 0) {
-    correctAnswer = 'no';
-  }
-
-  runRounds(gameName, question, correctAnswer);
+    let correctAnswer = 'yes';
+    if ((currentQuestion % 2) !== 0) {
+      correctAnswer = 'no';
+    }
+    return [currentQuestion, correctAnswer];
+  };
+  runRounds(gameName, question);
 };
