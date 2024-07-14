@@ -1,11 +1,7 @@
 import readlineSync from 'readline-sync';
 import greeting from './greeting.js';
-import getRandomExpression from './randomExpression.js';
-import randomNumber from './randomNumber.js';
-import getProgression from './progression.js';
-import isPrime from './isPrime.js';
 
-export default (gameName) => {
+export default (gameName, question, correctAnswer) => {
   console.log('Welcome to the Brain Games!');
 
   const userName = greeting(gameName);
@@ -13,81 +9,7 @@ export default (gameName) => {
   const roundsCount = 3; // according to the task
   let i = 1;
   while (i <= roundsCount) {
-    let question;
-    let randomExpressionArray;
-    let progressionArray;
-    switch (gameName) {
-      case 'brain-even':
-        question = randomNumber(gameName);
-        break;
-      case 'brain-calc':
-        randomExpressionArray = getRandomExpression();
-        question = `${randomExpressionArray[0]} ${randomExpressionArray[1]} ${randomExpressionArray[2]}`;
-        break;
-      case 'brain-gcd':
-        randomExpressionArray = getRandomExpression();
-        question = `${randomExpressionArray[0]} ${randomExpressionArray[2]}`;
-        break;
-      case 'brain-progression':
-        progressionArray = getProgression();
-        question = progressionArray[1].join(' ');
-        break;
-      case 'brain-prime':
-        question = randomNumber(gameName);
-      // no default
-    }
-    console.log('Question: ' + question);
-
-    let correctAnswer;
-    switch (gameName) {
-      case 'brain-even':
-        correctAnswer = 'yes';
-        if ((question % 2) !== 0) {
-          correctAnswer = 'no';
-        }
-        break;
-      case 'brain-calc':
-      // because eval function is not safe
-        switch (randomExpressionArray[1]) {
-          case '+':
-            correctAnswer = randomExpressionArray[0] + randomExpressionArray[2];
-            break;
-          case '-':
-            correctAnswer = randomExpressionArray[0] - randomExpressionArray[2];
-            break;
-          case '*':
-            correctAnswer = randomExpressionArray[0] * randomExpressionArray[2];
-    // no default
-        }
-        break;
-      case 'brain-gcd': {
-        const absRandNum1 = Math.abs(randomExpressionArray[0]);
-        const absRandNum2 = Math.abs(randomExpressionArray[2]);
-        /* The absolute value of numbers is because these random numbers may be negative and it will
-        cause wrong result (moreover, the greatest common divisor will be positive anyway). */
-        let gcd;
-        if (absRandNum1 < absRandNum2 && absRandNum1 !== 0) {
-          gcd = absRandNum1;
-        } else if (absRandNum2 !== 0) {
-          gcd = absRandNum2;
-        } else {
-          gcd = 1; // if both of the random numbers are 0
-        }
-        for (gcd; gcd >= 1; gcd -= 1) {
-          if (absRandNum1 % gcd === 0 && absRandNum2 % gcd === 0) {
-            correctAnswer = gcd;
-            break;
-          }
-        }
-      }
-        break;
-      case 'brain-progression':
-        correctAnswer = progressionArray[0];
-        break;
-      case 'brain-prime':
-        correctAnswer = isPrime(question);
-// no default
-    }
+    console.log(`Question: ${question}`);
 
     const answer = readlineSync.question('Your answer: ');
 
