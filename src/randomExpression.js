@@ -16,7 +16,6 @@ const randomExpression = () => {
       default:
         throw new Error(`Unknown arithmeticIndex: '${arithmeticIndex}'!`);
     }
-    // return null;  to eliminate eslint arrow function return requires error
   };
 
   const randomArithmeticOperator = getArithmeticOperator();

@@ -11,7 +11,9 @@ export default (gameName) => {
     case 'brain-prime':
       minRandNum = 2;
       maxRandNum = 50;
-  // no default
+      break;
+    default:
+      throw new Error(`Unknown gameName: '${gameName}'!`);
   }
   return _.random(minRandNum, maxRandNum);
 };

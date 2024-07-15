@@ -19,7 +19,9 @@ export default (gameName) => {
       break;
     case 'brain-prime':
       console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  // no default
+      break;
+    default:
+      throw new Error(`Unknown gameName: '${gameName}'!`);
   }
 
   return userName; // It is for userName const in index.js

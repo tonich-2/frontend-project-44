@@ -20,7 +20,9 @@ export default () => {
         break;
       case '*':
         correctAnswer = randomExpressionArray[0] * randomExpressionArray[2];
-  // no default
+        break;
+      default:
+        throw new Error(`Unknown order state (randomExpressionArray[1]): '${randomExpressionArray[1]}'!`);
     }
 
     return [question, correctAnswer];
