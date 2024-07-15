@@ -2,7 +2,7 @@ import getUserName from './cli.js';
 
 export default (gameName) => {
   const userName = getUserName();
-  console.log('Hello, ' + userName + '!');
+  console.log(`Hello, ${userName}!`);
 
   switch (gameName) {
     case 'brain-even':
