@@ -1,10 +1,10 @@
 import readlineSync from 'readline-sync';
-import greeting from './greeting.js';
+import greet from './greeting.js';
 
 export default (gameName, getQuestionAndAnswer) => {
   console.log('Welcome to the Brain Games!');
 
-  const userName = greeting(gameName);
+  const userName = greet(gameName);
 
   const roundsCount = 3; // according to the task
   let questionAndAnswer = [];
