@@ -8,24 +8,25 @@ export default () => {
   let correctAnswer;
   const getQuestionAndAnswer = () => {
     randomExpressionArray = getRandomExpression();
-    const question = `${randomExpressionArray[0]} ${randomExpressionArray[1]} ${randomExpressionArray[2]}`;
+    const [randomNumber1, randomArithmeticOperator, randomNumber2] = randomExpressionArray;
+    const question = `${randomNumber1} ${randomArithmeticOperator} ${randomNumber2}`;
 
     // because eval function is not safe
-    switch (randomExpressionArray[1]) {
-      case '+':
-        correctAnswer = randomExpressionArray[0] + randomExpressionArray[2];
-        break;
-      case '-':
-        correctAnswer = randomExpressionArray[0] - randomExpressionArray[2];
-        break;
-      case '*':
-        correctAnswer = randomExpressionArray[0] * randomExpressionArray[2];
-        break;
-      default:
-        throw new Error(`Unknown order state (randomExpressionArray[1]): '${randomExpressionArray[1]}'!`);
-    }
+    const calculateExpression = () => {
+      switch (randomArithmeticOperator) {
+        case '+':
+          return (randomNumber1 + randomNumber2);
+        case '-':
+          return (randomNumber1 - randomNumber2);
+        case '*':
+          return (randomNumber1 * randomNumber2);
+        default:
+          throw new Error(`Unknown order state (randomArithmeticOperator): '${randomArithmeticOperator}'!`);
+      }
+    };
 
-    return [question, correctAnswer];
+    correctAnswer = calculateExpression();
+    return [String(question), String(correctAnswer)];
   };
 
   runRounds(gameName, getQuestionAndAnswer);

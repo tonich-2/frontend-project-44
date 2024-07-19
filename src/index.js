@@ -7,26 +7,26 @@ export default (gameName, getQuestionAndAnswer) => {
   const userName = greet(gameName);
 
   const roundsCount = 3; // according to the task
-  let questionAndAnswer = [];
-  let i = 1;
-  while (i <= roundsCount) {
+  let victory = true;
+  for (let i = 1; i <= roundsCount; i += 1) {
+    let questionAndAnswer = [];
     questionAndAnswer = getQuestionAndAnswer();
-    console.log(`Question: ${questionAndAnswer[0]}`);
+    const [question, correctAnswer] = questionAndAnswer; // array destructuring
+    console.log(`Question: ${question}`);
 
     const userAnswer = readlineSync.question('Your answer: ');
 
-    let result = 'Correct!';
-    if (userAnswer === String(questionAndAnswer[1])) { /* String() needs because entered numbers
+    if (userAnswer === correctAnswer) { /* Entered numbers
       are interpreted as strings but correctAnswer may be either a number or a string. */
-      i += 1;
+      console.log('Correct!');
     } else {
-      result = `'${userAnswer}' is wrong answer ;(. Correct answer was '${questionAndAnswer[1]}'. Let's try again, ${userName}!`;
-      i = roundsCount + 2; // To exit the loop and do not show Congratulations message.
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${userName}!`);
+      victory = false;
+      break;
     }
-    console.log(result);
   }
 
-  if (i === roundsCount + 1) {
+  if (victory) {
     console.log(`Congratulations, ${userName}!`);
   }
 };

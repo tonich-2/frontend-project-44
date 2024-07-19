@@ -1,29 +1,16 @@
-import _ from 'lodash';
+import getRandomNumber from './randomNumber.js';
 
-const randomExpression = () => {
-  const randomNumber1 = _.random(1, 99);
-  const randomNumber2 = _.random(1, 99);
+export default () => {
+  const randomNumber1 = getRandomNumber(1, 99);
+  const randomNumber2 = getRandomNumber(1, 99);
 
   const getArithmeticOperator = () => {
-    const arithmeticIndex = _.random(0, 2);
-    switch (arithmeticIndex) {
-      case 0:
-        return '+';
-      case 1:
-        return '-';
-      case 2:
-        return '*';
-      default:
-        throw new Error(`Unknown arithmeticIndex: '${arithmeticIndex}'!`);
-    }
+    const arithmeticOperators = ['+', '-', '*'];
+    const arithmeticIndex = getRandomNumber(0, 2);
+    return arithmeticOperators[arithmeticIndex];
   };
 
   const randomArithmeticOperator = getArithmeticOperator();
 
-  const randomArithmeticExrpession = [randomNumber1, randomArithmeticOperator, randomNumber2];
-  return (randomArithmeticExrpession);
+  return [randomNumber1, randomArithmeticOperator, randomNumber2];
 };
-
-// export { randomNumber1, randomNumber2, randomArithmeticOperator };
-
-export default randomExpression;
