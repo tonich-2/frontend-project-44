@@ -34,7 +34,7 @@ _____________________________
 
 ### Asciinemas.
 
-- Demonstration of a setup and a launch the [brain-even game](https://asciinema.org/a/PiY1zJvFvX2m7jOCMK32YM9TN)
+- Demonstration of a setup and a launch the [brain-even](https://asciinema.org/a/PiY1zJvFvX2m7jOCMK32YM9TN) game
 
 - [brain-calc](https://asciinema.org/a/ygKn32wJwDngOIuwbZhVXQtc0)
 
