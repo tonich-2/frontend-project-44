@@ -1,20 +1,19 @@
 import runRounds from '../index.js';
 import getRandomNumber from '../randomNumber.js';
 
+const getProgression = (initialElement, increment, progressionLength) => {
+  const progression = [initialElement];
+  let i = 0;
+  while (i <= progressionLength) {
+    progression.push(progression[i] + increment);
+    i += 1;
+  }
+  return progression;
+};
+
 export default () => {
-  const gameName = 'brain-progression';
+  const instruction = 'What number is missing in the progression?';
 
-  const getProgression = (initialElement, increment, progressionLength) => {
-    const progression = [initialElement];
-    let i = 0;
-    while (i <= progressionLength) {
-      progression.push(progression[i] + increment);
-      i += 1;
-    }
-    return progression;
-  };
-
-  let correctAnswer;
   const getQuestionAndAnswer = () => {
     const initialElement = getRandomNumber(1, 50);
     const increment = getRandomNumber(2, 9);
@@ -25,10 +24,10 @@ export default () => {
     progressionWithMissing[randomProgressionItem] = '..';
     const question = progressionWithMissing.join(' ');
 
-    correctAnswer = missingItem;
+    const correctAnswer = missingItem;
 
     return [String(question), String(correctAnswer)];
   };
 
-  runRounds(gameName, getQuestionAndAnswer);
+  runRounds(instruction, getQuestionAndAnswer);
 };

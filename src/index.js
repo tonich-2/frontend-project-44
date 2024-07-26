@@ -1,17 +1,15 @@
 import readlineSync from 'readline-sync';
 import greet from './greeting.js';
 
-export default (gameName, getQuestionAndAnswer) => {
+export default (instruction, getQuestionAndAnswer) => {
   console.log('Welcome to the Brain Games!');
 
-  const userName = greet(gameName);
+  const userName = greet();
+  console.log(instruction);
 
   const roundsCount = 3; // according to the task
-  let victory = true;
   for (let i = 1; i <= roundsCount; i += 1) {
-    let questionAndAnswer = [];
-    questionAndAnswer = getQuestionAndAnswer();
-    const [question, correctAnswer] = questionAndAnswer; // array destructuring
+    const [question, correctAnswer] = getQuestionAndAnswer();
     console.log(`Question: ${question}`);
 
     const userAnswer = readlineSync.question('Your answer: ');
@@ -21,12 +19,10 @@ export default (gameName, getQuestionAndAnswer) => {
       console.log('Correct!');
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${userName}!`);
-      victory = false;
-      break;
+      return; /* The code will stop here. But if break, the code will be continue to run
+      and the congratulation message will be shown anyway. */
     }
   }
 
-  if (victory) {
-    console.log(`Congratulations, ${userName}!`);
-  }
+  console.log(`Congratulations, ${userName}!`);
 };
