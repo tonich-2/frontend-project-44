@@ -18,7 +18,6 @@
   "author": "Anton Arzamastsev <tonich@sbor.net>",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.21",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
