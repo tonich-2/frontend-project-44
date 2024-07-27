@@ -13,7 +13,9 @@ export default () => {
   const instruction = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
   const getQuestionAndAnswer = () => {
-    const question = getRandomNumber(2, 50);
+    const minRandNum = 2;
+    const maxRandNum = 50;
+    const question = getRandomNumber(minRandNum, maxRandNum);
 
     const correctAnswer = isPrime(question) ? 'yes' : 'no';
 

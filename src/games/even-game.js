@@ -7,7 +7,9 @@ export default () => {
   const instruction = 'Answer "yes" if the number is even, otherwise answer "no".';
 
   const getQuestionAndAnswer = () => {
-    const question = getRandomNumber(1, 99);
+    const minRandNum = 1;
+    const maxRandNum = 99;
+    const question = getRandomNumber(minRandNum, maxRandNum);
 
     const correctAnswer = isEven(question) ? 'yes' : 'no';
 

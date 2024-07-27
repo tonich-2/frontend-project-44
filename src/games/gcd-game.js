@@ -2,32 +2,23 @@ import runRounds from '../index.js';
 import getRandomNumber from '../randomNumber.js';
 
 const getGcd = (randomNumber1, randomNumber2) => {
-  const absRandNum1 = Math.abs(randomNumber1);
-  const absRandNum2 = Math.abs(randomNumber2);
-  /* The absolute value of numbers is because these random numbers may be negative and it will
-cause wrong result (moreover, the greatest common divisor will be positive anyway). */
-  let gcd;
-  if (absRandNum1 < absRandNum2 && absRandNum1 !== 0) {
-    gcd = absRandNum1;
-  } else if (absRandNum2 !== 0) {
-    gcd = absRandNum2;
-  } else {
-    gcd = 1; // if both of the random numbers are 0
-  }
+  let gcd = Math.min(randomNumber1, randomNumber2);
   for (gcd; gcd >= 1; gcd -= 1) {
-    if (absRandNum1 % gcd === 0 && absRandNum2 % gcd === 0) {
-      break;
+    if (randomNumber1 % gcd === 0 && randomNumber2 % gcd === 0) {
+      return gcd;
     }
   }
-  return gcd;
+  throw new Error('No GCD found.'); // If the loop ended but matched no condition.
 };
 
 export default () => {
   const instruction = 'Find the greatest common divisor of given numbers.';
 
   const getQuestionAndAnswer = () => {
-    const randomNumber1 = getRandomNumber(1, 99);
-    const randomNumber2 = getRandomNumber(1, 99);
+    const minRandNum = 1;
+    const maxRandNum = 99;
+    const randomNumber1 = getRandomNumber(minRandNum, maxRandNum);
+    const randomNumber2 = getRandomNumber(minRandNum, maxRandNum);
     const question = `${randomNumber1} ${randomNumber2}`;
 
     const correctAnswer = getGcd(randomNumber1, randomNumber2);

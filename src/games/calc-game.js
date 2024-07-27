@@ -9,7 +9,7 @@ const getRandomExpression = () => {
 
   const arithmeticOperators = ['+', '-', '*'];
   const minArithmeticIndex = 0;
-  const maxArithmeticIndex = 2;
+  const maxArithmeticIndex = arithmeticOperators.length - 1;
   const arithmeticIndex = getRandomNumber(minArithmeticIndex, maxArithmeticIndex);
   const randomArithmeticOperator = arithmeticOperators[arithmeticIndex];
 
